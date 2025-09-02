@@ -1,0 +1,29 @@
+/* 锁死首页一屏并禁止滚动 —— 不依赖 body.index */
+html, body {
+  height: 100vh !important;
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+/* 让首屏背景铺满一屏 */
+#page-header {
+  height: 100vh !important;
+  margin: 0 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 隐藏会把页面撑高的区域（你截图里的这几个） */
+#content-inner,
+#footer,
+#rightside {
+  display: none !important;
+}
+
+/* 保险：外层容器至少一屏高 */
+#body-wrap { min-height: 100vh !important; }
+
+/* 可选：隐藏向下箭头/滚动提示 */
+.banner-down, .scroll-down { display: none !important; }

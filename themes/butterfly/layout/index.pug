@@ -1,0 +1,46 @@
+extends includes/layout.pug
+
+block content
+  include ./includes/mixins/indexPostUI.pug
+  +indexPostUI
+
+  // 强制首页：只显示首屏、禁止滚动、任意点击进博客
+  script.
+    (function () {
+      // 1) 目标地址：想去 /blog/ 就把下面改成 "#{config.root}blog/"
+      var blogUrl = "#{config.root}archives/";
+
+      // 2) 直接隐藏会把首页撑高的区域（不依赖外部 CSS）
+      ['content-inner','footer','rightside'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+
+      // 3) 锁死视窗高度 & 禁止滚动（html + body 双保险）
+      var de = document.documentElement;
+      de.style.height = '100vh';
+      de.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+      document.body.style.overflow = 'hidden';
+
+      // 4) 让首屏铺满一屏，并加“全屏透明链接”
+      var header = document.getElementById('page-header');
+      if (header) {
+        header.style.minHeight = '100vh';
+        header.style.height = '100vh';
+        header.style.position = 'relative';
+
+        var a = document.createElement('a');
+        a.href = blogUrl;
+        a.setAttribute('aria-label', '进入博客');
+        a.style.position = 'absolute';
+        a.style.inset = '0';
+        a.style.display = 'block';
+        a.style.zIndex = '2';
+        header.appendChild(a);
+      }
+
+      // 5) 导航放到链接之上，仍可点击
+      var nav = document.getElementById('nav');
+      if (nav) { nav.style.position = 'relative'; nav.style.zIndex = '3'; }
+    })();
