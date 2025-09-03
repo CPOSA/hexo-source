@@ -1,6 +1,0 @@
----
-categories:
-  - Algorithm
-  - Cpp
----
-

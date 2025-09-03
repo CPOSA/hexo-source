@@ -1,0 +1,35 @@
+/* ==== 兜底颜色（若已定义则不覆盖）==== */
+$theme-color           ?= #49b1f5
+
+$primary               ?= $theme-color
+$info                  ?= #909399
+$success               ?= #67c23a
+$warning               ?= #e6a23c
+$danger                ?= #f56c6c
+
+/* note.styl 实际查的是 $tagsP-*-color 这一套变量名 */
+$tagsP-primary-color   ?= $primary
+$tagsP-info-color      ?= $info
+$tagsP-success-color   ?= $success
+$tagsP-warning-color   ?= $warning
+$tagsP-danger-color    ?= $danger
+
+/* note 会用到的其它变量 */
+$color-types           ?= primary info success warning danger
+$font-black            ?= #333333
+
+/* （可选）防御版 lighten，避免意外 null 仍导致编译中断 */
+lighten(c, amt)
+  if c
+    return adjust(c, 'lightness', amt)
+  else
+    return rgba(0,0,0,0)
+
+@import "_global/function"   /* 你已有的，用到了 .fontawesomeIcon */
+@import "_layout/post"
+@import "_tags/note"
+
+@import "_layout/post"
+@import "_tags/note"
+
+/* 其他 _layout/_tags/_partial 按需继续 import */

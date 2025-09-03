@@ -1062,6 +1062,8 @@ CDN:
   # Custom format
   # For example: https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}
   custom_format:
+  
+  css: css/main.css
 
   option:
     # abcjs_basic_js:
@@ -1119,3 +1121,4 @@ CDN:
     # valine:
     # waline_css:
     # waline_js:
+
