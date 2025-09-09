@@ -17,7 +17,7 @@ categories:
 
 01背包问题, 倒序遍历背包, 背包大小为sum, 正序遍历物品
 
-dp[x] = dp[x-nums[i]] (x>nums[i])
+方案数统计：dp[x] += dp[x-nums[i]] (x>nums[i])
 
 # 406 根据身高重建队列
 
