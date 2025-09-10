@@ -32,4 +32,7 @@ An Finite MDP is defined by:
 
 we have $||V||_{\infin} = \underset{s}{max} |V(s)| $, ||V|| is norm
 
-$V^*(k) = R(s) + \gamma \underset{a \in A}{\text{max}} \underset{s' \in S}{\sum} P(s'|s,a)V^*(s')$
+$BV(k) = R(s) + \gamma \underset{a \in A}{\text{max}} \underset{s' \in S}{\sum} P(s'|s,a)V(s')$
+
+$B_{\pi}V(s) = \mathbb{E}_{a\sim\pi}[R(s,a) + \gamma \underset{s' \in S}{\sum} p(s'|s,a) V(s')]$
+
