@@ -12,6 +12,11 @@ categories:
 * 在Cpp中注意vector和array的区别，vector严格来说是容器
 * int 占四个字节
 
+创建动态数组
+```
+vector<int> arr(n)
+```
+
 ## 704 二分查找
 
 **有序无重复队列**，(left + right) / 2 == left + (right - left) / 2, 左右搜索
